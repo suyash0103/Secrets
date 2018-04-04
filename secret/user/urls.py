@@ -6,6 +6,6 @@ from . import views
 app_name = 'user'
 
 urlpatterns = [
-    # user/image/
-    url(r'^image/$', views.Image.as_view(), name='image'),
+    # user/check/
+    url(r'^check/$', views.Check.as_view(), name='image'),
 ]
