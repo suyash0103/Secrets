@@ -18,17 +18,17 @@ class Check(APIView):
 
 class Load(APIView):
 
+    # list to hold all subject faces
+    faces = []
+    # list to hold labels for all subjects
+    labels = []
+
     def get(self):
         self.prepare_training_data("media")
         return
 
     def prepare_training_data(self, data_folder_path):
         dirs = os.listdir(data_folder_path)
-
-        # list to hold all subject faces
-        faces = []
-        # list to hold labels for all subjects
-        labels = []
 
         # let's go through each directory and read images within it
         for dir_name in dirs:
@@ -75,10 +75,10 @@ class Load(APIView):
                 # we will ignore faces that are not detected
                 if face is not None:
                     # add face to list of faces
-                    faces.append(face)
+                    self.faces.append(face)
                     # add label for this face
-                    labels.append(label)
-        return faces, labels
+                    self.labels.append(label)
+        return self.faces, self.labels
 
     def detect_face(self, img):
         # convert the test image to gray scale as opencv face detector expects gray images
