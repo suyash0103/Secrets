@@ -11,3 +11,8 @@ class Check(APIView):
 
     def post(self, request):
         return
+
+class Load(APIView):
+
+    def get(self):
+        return

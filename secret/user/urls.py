@@ -8,4 +8,7 @@ app_name = 'user'
 urlpatterns = [
     # user/check/
     url(r'^check/$', views.Check.as_view(), name='image'),
+
+    # user/load/
+    url(r'^load/$', views.Load.as_view(), name='load'),
 ]
