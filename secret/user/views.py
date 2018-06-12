@@ -87,6 +87,7 @@ class Load(APIView):
         # load OpenCV face detector, I am using LBP which is fast
         # there is also a more accurate but slow: Haar classifier
         face_cascade = cv2.CascadeClassifier('opencv-files/lbpcascade_frontalface.xml')
+        # face_cascade = cv2.CascadeClassifier('opencv-files/haarcascade_frontalface_alt.xml')
 
         # let's detect multiscale images(some images may be closer to camera than others)
         # result is a list of faces
