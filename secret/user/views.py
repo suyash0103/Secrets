@@ -23,6 +23,8 @@ class Load(APIView):
     # list to hold labels for all subjects
     labels = []
 
+    people = ['', 'Suyash']
+
     def get(self):
         self.prepare_training_data("media")
         return
