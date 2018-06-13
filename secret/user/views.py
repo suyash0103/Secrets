@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.conf import settings as djangoSettings
+from .serializers import PhotoSerializer
 
 import cv2
 import os
@@ -19,8 +20,13 @@ class Check(APIView):
         # name = request.data['name']
         # file = open(djangoSettings.STATIC_ROOT + '/test-data' + name + '.jpg', 'w')
         # file.write(img)
-
-
+        serializer = PhotoSerializer(data=request.data)
+        if(serializer.is_valid()):
+            serializer.save()
+            print (serializer)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        print ("Bad request")
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 class Load(APIView):
 
