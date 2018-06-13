@@ -16,7 +16,7 @@ import numpy as np
 class Check(APIView):
 
     def post(self, request):
-        img = request.data['image']
+        # img = request.data['image']
         # name = request.data['name']
         # file = open(djangoSettings.STATIC_ROOT + '/test-data' + name + '.jpg', 'w')
         # file.write(img)
