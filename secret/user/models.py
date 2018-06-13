@@ -11,4 +11,4 @@ def get_image_path(instance, filename):
 class Photo(models.Model):
     image = models.ImageField(upload_to=get_image_path)
     name = models.CharField(max_length=100)
-    count = models.IntegerField(max_length=10)
+
